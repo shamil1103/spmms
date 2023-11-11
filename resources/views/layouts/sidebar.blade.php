@@ -1,6 +1,11 @@
 @php
-
+    use App\Enums\Permission\UserPermissionEnum;
+    use App\Enums\Permission\RolePermissionEnum;
+    use App\Enums\Permission\ApplicationPermissionEnum;
+    $authUser = auth()->user();
+    $defaultUser = $authUser->email == defaultUser();
 @endphp
+
 <nav id="main-menu" class="side-navbar">
     <!-- Sidebar Header-->
     <div class="sidebar-header d-flex align-items-center">
@@ -119,22 +124,43 @@
             </ul>
         </li>
 
+        @if (
+            $defaultUser ||
+                $authUser->can(UserPermissionEnum::ALL_LIST->value) ||
+                $authUser->can(RolePermissionEnum::ALL_LIST->value) ||
+                $authUser->can(ApplicationPermissionEnum::READ->value))
+            <li>
+                <a aria-expanded="false" data-toggle="collapse" href="#dashvariants_setting">
+                    <i class="fas fa-cog"></i>Setting
+                </a>
+                <ul class="collapse list-unstyled" id="dashvariants_setting">
+                    @if ($defaultUser || $authUser->can(UserPermissionEnum::ALL_LIST->value))
+                        <li>
+                            <a href="{{ route('backend.user.index') }}"
+                                class="@if (!empty($child_menu) && $child_menu == 'user') active @endif">
+                                User
+                            </a>
+                        </li>
+                    @endif
+                    @if ($defaultUser || $authUser->can(RolePermissionEnum::ALL_LIST->value))
+                        <li>
+                            <a href="{{ route('backend.role.index') }}"
+                                class="@if (!empty($child_menu) && $child_menu == 'role') active @endif">
+                                Role
+                            </a>
+                        </li>
+                    @endif
+                    @if ($defaultUser || $authUser->can(ApplicationPermissionEnum::READ->value))
+                        <li>
+                            <a href="{{ route('backend.application.index') }}"
+                                class="@if (!empty($child_menu) && $child_menu == 'application') active @endif">
+                                Application
+                            </a>
+                        </li>
+                    @endif
 
-        <li>
-            <a aria-expanded="false" data-toggle="collapse" href="#dashvariants_setting">
-                <i class="fas fa-cog"></i>Setting
-            </a>
-            <ul class="collapse list-unstyled" id="dashvariants_setting">
-                <li >
-                    <a href="#">User</a>
-                </li>
-                <li>
-                    <a href="#">Role</a>
-                </li>
-                <li>
-                    <a href="#">Application</a>
-                </li>
-            </ul>
-        </li>
+                </ul>
+            </li>
+        @endif
     </ul>
 </nav>

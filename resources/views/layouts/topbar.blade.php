@@ -34,7 +34,7 @@
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-center">
                     <!-- Logout    -->
                     <li class="nav-item">
-                        <a class="nav-link logout" href="admin-login.html">Logout<i class="fas fa-sign-out-alt"></i></a>
+                        <a class="nav-link logout" href="{{ route('logout') }}">Logout<i class="fas fa-sign-out-alt"></i></a>
                     </li>
                 </ul>
             </div>

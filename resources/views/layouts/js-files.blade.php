@@ -74,28 +74,13 @@
     window.onload = function() {
         @if (session()->has('message'))
             @if (session('type') == 'success')
-                $.growl({
-                    title: "Success",
-                    style: "notice",
-                    message: "{{ session('message') }}",
-                    duration: 5000
-                });
+                alert('{{ session('message') }}');
             @endif
             @if (session('type') == 'warning')
-                $.growl({
-                    title: "Warning",
-                    style: "warning",
-                    message: "{{ session('message') }}",
-                    duration: 5000
-                });
+                alert('{{ session('message') }}');
             @endif
             @if (session('type') == 'danger')
-                $.growl({
-                    title: "Error",
-                    style: "error1",
-                    message: "{{ session('message') }}",
-                    duration: 5000
-                });
+                alert('{{ session('message') }}');
             @endif
         @endif
 

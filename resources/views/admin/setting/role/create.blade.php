@@ -6,7 +6,7 @@
 
 
 @section('content')
-    <div class="main-container container-fluid">
+    <div class="main-container container-fluid" style="min-height: 700px">
         <!-- PAGE-HEADER -->
 
         @component('components.breadcrumb', [

@@ -46,7 +46,6 @@
                 <!-- Page Footer-->
                 @include('layouts.footer')
                 <!-- Page Footer-->
-
             </div>
         </div>
     </div>

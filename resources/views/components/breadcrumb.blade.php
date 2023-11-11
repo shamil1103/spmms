@@ -5,7 +5,7 @@
      </div>
      <ul class="breadcrumb">
          <div class="container-fluid">
-             <li class="breadcrumb-item"><a href="#">Home</a></li>
+             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
              @if (isset($menus) && count($menus))
                  @foreach ($menus as $menu)
                      <li class="breadcrumb-item @if ($loop->last) active @endif" aria-current="page">

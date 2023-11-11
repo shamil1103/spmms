@@ -12,7 +12,7 @@
 
 
 @section('content')
-    <div class="main-container container-fluid">
+    <div class="main-container container-fluid" style="min-height: 700px">
         <!-- PAGE-HEADER -->
 
         @component('components.breadcrumb', [
@@ -35,7 +35,7 @@
                         <div class="card-title">User</div>
                         @if ($authUser->can(UserPermissionEnum::CREATE->value) || $defaultUser)
                             <a href="{{ route('backend.user.create') }}" class="btn btn-primary" title="Create User">
-                                <i class="fe fe-edit"></i>
+                                <i class="fa fa-edit"></i>
                             </a>
                         @endif
                     </div>

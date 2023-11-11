@@ -18,7 +18,7 @@
         @endslot
     @endcomponent
 
-    <div class="main-container container-fluid">
+    <div class="main-container container-fluid" style="min-height: 700px">
         <!-- PAGE-HEADER -->
 
 
@@ -30,7 +30,7 @@
                         <div class="card-title">Application</div>
                         <a href="{{ route('backend.application.edit', $application->id) }}" class="btn btn-primary"
                             title="Create">
-                            <i class="fe fe-edit"></i>
+                            <i class="fa fa-edit"></i>
                         </a>
                     </div>
                     <div class="card-body">

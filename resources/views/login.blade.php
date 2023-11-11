@@ -96,7 +96,8 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary logBTN" style="border-bottom: 5px solid #00d03b;">
+                                    <button type="submit" class="btn btn-primary logBTN"
+                                        style="border-bottom: 5px solid #00d03b;">
                                         Login
                                     </button>
                                 </form>
@@ -180,6 +181,19 @@
             table.buttons().container()
                 .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
         });
+        window.onload = function() {
+            @if (session()->has('message'))
+                @if (session('type') == 'success')
+                    alert('{{ session('message') }}');
+                @endif
+                @if (session('type') == 'warning')
+                    alert('{{ session('message') }}');
+                @endif
+                @if (session('type') == 'danger')
+                    alert('{{ session('message') }}');
+                @endif
+            @endif
+        }
     </script>
 </body>
 
